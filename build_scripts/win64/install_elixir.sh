@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-env
+env | sort
 
-echo "Downloading Erlang"
+echo "Downloading Erlang ${ERLANG_VERSION}"
 
 erlang_url="https://github.com/erlang/otp/releases/download/OTP-${ERLANG_VERSION}/otp_win64_${ERLANG_VERSION}.exe"
 
@@ -16,9 +16,9 @@ echo "Waiting for c:\erlang\bin\erl.exe..."
 
 while [ ! -f "c:\erlang\bin\erl.exe" ]; do sleep 1; done
 
-elixir_url="https://github.com/elixir-lang/elixir/releases/download/v${ELIXIR_VERSION}/Precompiled.zip"
+echo "Downloading Elixir ${ELIXIR_VERSION"
 
-echo "Downloading Elixir"
+elixir_url="https://github.com/elixir-lang/elixir/releases/download/v${ELIXIR_VERSION}/Precompiled.zip"
 curl -o "${TEMP}\elixir.zip" $elixir_url
 
 echo "Extracting Elixir"
