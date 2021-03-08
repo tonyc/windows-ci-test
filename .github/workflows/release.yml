@@ -23,7 +23,7 @@ jobs:
           ERLANG_VERSION: 23.2.7
           ELIXIR_VERSION: 1.11.3
         run: |
-          build_scripts/win64/install_elixir.sh
+          ./build_scripts/win64/install_elixir.sh
           echo "*********"
           elixir --version
 
