@@ -19,7 +19,7 @@ curl -L -o "${TEMP}\erlang.exe" $erlang_url
 
 echo "Installing Erlang"
 
-"${TEMP}\erlang.exe" /S /D="c:\erlang"
+"${TEMP}/erlang.exe" /S /D="c:\erlang"
 
 echo "Waiting for c:\erlang\bin\erl.exe..."
 
@@ -28,10 +28,10 @@ while [ ! -f "c:\erlang\bin\erl.exe" ]; do sleep 1; done
 echo "Downloading Elixir ${ELIXIR_VERSION"
 
 elixir_url="https://github.com/elixir-lang/elixir/releases/download/v${ELIXIR_VERSION}/Precompiled.zip"
-curl -L -o "${TEMP}\elixir.zip" $elixir_url
+curl -L -o "${TEMP}/elixir.zip" $elixir_url
 
 echo "Extracting Elixir"
-unzip "${TEMP}\elixir.zip" -d "c:\elixir"
+unzip "${TEMP}/elixir.zip" -d "c:\elixir"
 
 echo "Appending c:\elixir\bin and c:\erlang\bin to PATH"
 echo "c:\erlang\bin" >> $GITHUB_PATH
