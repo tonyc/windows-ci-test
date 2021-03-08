@@ -5,6 +5,12 @@ set -x
 
 env | sort
 
+echo "*****"
+
+pwd
+
+ls -laR
+
 
 erlang_url="https://github.com/erlang/otp/releases/download/OTP-${ERLANG_VERSION}/otp_win64_${ERLANG_VERSION}.exe"
 echo "Downloading Erlang ${ERLANG_VERSION} from ${erlang_url}"
