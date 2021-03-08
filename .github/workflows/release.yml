@@ -1,0 +1,30 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - '*'
+
+jobs:
+
+  release-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Set output
+        shell: bash
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+      - name: Install Erlang and Elixir
+        shell: bash
+        env:
+          ERLANG_VERSION: 23.2.7
+          ELIXIR_VERSION: 1.11.3
+        run: |
+          build_scripts\win64\install_elixir.sh
+          echo "*********"
+          elixir --version
+
+
